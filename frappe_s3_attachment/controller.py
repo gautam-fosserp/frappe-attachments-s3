@@ -205,6 +205,13 @@ def file_upload_to_s3(doc, method):
     """
     if doc.is_folder:
         return
+    
+    # Skip link/URL attachments — no physical file to upload
+    if not doc.file_name:
+        return
+    if doc.file_url and re.match(r'^https?://', doc.file_url):
+        return
+    
     s3_upload = S3Operations()
     path = doc.file_url
     site_path = frappe.utils.get_site_path()
