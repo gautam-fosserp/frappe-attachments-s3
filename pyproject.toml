@@ -1,0 +1,16 @@
+[project]
+name = "frappe_s3_attachment"
+authors = [
+    { name = "Gautam Tyagi", email = "gautam@fosserp.com" }
+]
+description = "A frappe app to upload file attachments in doctypes to s3"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    # copy from setup.py / requirements.txt
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
